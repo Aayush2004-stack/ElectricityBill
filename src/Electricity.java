@@ -1,13 +1,32 @@
-
+import java.util.ArrayList;
 
 public class Electricity {
 
     int houseNo;
     String customerName;
-     double unit;
+    double unit;
     double totalPrice;
 
+    private static ArrayList<Electricity> customers = new ArrayList<>();
 
+
+    static void addCustomers(Electricity customer){
+        customers.add(customer);
+    }
+
+    static void calculateHighest(){
+        double highest= 0;
+        int houseNo=0;
+
+        for (Electricity customer: customers){
+            if(customer.totalPrice>highest){
+                highest = customer.totalPrice;
+                houseNo=customer.houseNo;
+            }
+        }
+
+        System.out.println("The highest payable amt is :"+highest +"\nand should be paid by houseNo: "+houseNo);
+    }
 
     public Electricity(int houseNo, String customerName, double unit){
         this.houseNo=houseNo;
