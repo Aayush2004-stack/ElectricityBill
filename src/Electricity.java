@@ -14,18 +14,20 @@ public class Electricity {
         customers.add(customer);
     }
 
-    static void calculateHighest(){
+    static Electricity calculateHighest(){
         double highest= 0;
-        int houseNo=0;
+        Electricity billRecord=null;
+
 
         for (Electricity customer: customers){
             if(customer.totalPrice>highest){
                 highest = customer.totalPrice;
-                houseNo=customer.houseNo;
+                billRecord=customer;
+
             }
         }
 
-        System.out.println("The highest payable amt is :"+highest +"\nand should be paid by houseNo: "+houseNo);
+        return billRecord;
     }
 
     public Electricity(int houseNo, String customerName, double unit){

@@ -36,7 +36,7 @@ class Main{
 
 
         }
-        Electricity.calculateHighest();
+        System.out.println("The record of the highest paying customer: "+Electricity.calculateHighest().customerName);
 
 
     }
